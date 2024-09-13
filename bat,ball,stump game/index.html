@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+    <title>Bat Ball Stump Game</title>
+  </head>
+  <body>
+    <h1>Bat Ball Stump Game</h1>
+
+    <!-- Case1 -->
+    <button
+      onclick="
+    number=Math.random() * 3;
+    Computerchoice,output;
+    if(number>0 && number<=1){
+        Computerchoice=`bat`;
+        output=`It's a tie`;
+    }
+    else if(number>1 && number<=2){
+        Computerchoice=`ball`;
+        output=`User won`;
+        Userscore++;
+    }
+    else{
+        Computerchoice=`Stump`;
+        output=`Computer won`;
+        ComputerScore++;
+    }
+    alert(`User choose Bat. Computer choose ${Computerchoice}. ${output}` )
+
+    document.querySelector('#result').innerText = `ComputerScore: ${ComputerScore} and UserScore : ${Userscore}`
+    ">
+      Bat
+    </button>
+
+    <!-- Case2 -->
+    <button
+      onclick="
+     number=Math.random() * 3;
+     Computerchoice,output;
+    if(number>0 && number<=1){
+        Computerchoice=`bat`;
+        output=`Computer won`;
+        ComputerScore++;
+    }
+    else if(number>1 && number<=2){
+        Computerchoice=`ball`;
+        output=`It's a tie`;
+    }
+    else{
+        Computerchoice=`Stump`;
+        output=`User won`;
+        Userscore++;
+    }
+    alert(`User choose Ball. Computer choose ${Computerchoice}. ${output}` )
+    document.querySelector('#result').innerText = `ComputerScore: ${ComputerScore} and UserScore : ${Userscore}`
+    "
+    >
+      Ball
+    </button>
+
+    <!-- Case3 -->
+    <button
+      onclick="
+    Math.random() * 3;
+    Computerchoice,output;
+   if(number>0 && number<=1){
+       Computerchoice=`bat`;
+       output=`User won`;
+       Userscore++;
+   }
+   else if(number>1 && number<=2){
+       Computerchoice=`ball`;
+       output=`Computer won`;
+       ComputerScore++;
+   }
+   else{
+       Computerchoice=`Stump`;
+       output=`Its a tie`;
+   }
+   alert(`User choose stump. Computer choose ${Computerchoice}. ${output}` )
+   document.querySelector('#result').innerText = `ComputerScore: ${ComputerScore} and UserScore : ${Userscore}`
+   "
+    >
+      Stump
+    </button>
+
+    <br>
+    
+    <button onclick="ComputerScore=0;
+    Userscore=0;
+    document.querySelector('#result').innerText = `ComputerScore: ${ComputerScore} and UserScore : ${Userscore}`
+    ">Restart</button>
+
+    <h2 id="result"></h2>
+
+
+
+  </body>
+
+    <script>
+        let ComputerScore = 0;
+        let Userscore = 0;
+        document.querySelector('#result').innerText = `ComputerScore: ${ComputerScore} and UserScore : ${Userscore}`
+      let number, Computerchoice, output;
+    </script>
+  </body>
+</html>
