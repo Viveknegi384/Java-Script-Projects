@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="/Function chapter5/bat,ball,stump game/styles.css" />
     <title>Bat Ball Stump Game</title>
   </head>
   <body>
@@ -10,25 +10,20 @@
     <!-- Case1 -->
     <button
       onclick="
-    number=Math.random() * 3;
-    Computerchoice,output;
-    if(number>0 && number<=1){
-        Computerchoice=`bat`;
+    getComputerChoice();
+    if(Computerchoice===`bat`){
         output=`It's a tie`;
     }
-    else if(number>1 && number<=2){
-        Computerchoice=`ball`;
+    else if(Computerchoice===`ball`){
         output=`User won`;
         Userscore++;
     }
     else{
-        Computerchoice=`Stump`;
         output=`Computer won`;
         ComputerScore++;
     }
     alert(`User choose Bat. Computer choose ${Computerchoice}. ${output}` )
-
-    document.querySelector('#result').innerText = `ComputerScore: ${ComputerScore} and UserScore : ${Userscore}`
+    DisplayResult();
     ">
       Bat
     </button>
@@ -36,24 +31,20 @@
     <!-- Case2 -->
     <button
       onclick="
-     number=Math.random() * 3;
-     Computerchoice,output;
-    if(number>0 && number<=1){
-        Computerchoice=`bat`;
+    getComputerChoice();
+    if(Computerchoice===`bat`){
         output=`Computer won`;
         ComputerScore++;
     }
-    else if(number>1 && number<=2){
-        Computerchoice=`ball`;
+    else if(Computerchoice===`ball`){
         output=`It's a tie`;
     }
     else{
-        Computerchoice=`Stump`;
         output=`User won`;
         Userscore++;
     }
     alert(`User choose Ball. Computer choose ${Computerchoice}. ${output}` )
-    document.querySelector('#result').innerText = `ComputerScore: ${ComputerScore} and UserScore : ${Userscore}`
+    DisplayResult();
     "
     >
       Ball
@@ -62,24 +53,20 @@
     <!-- Case3 -->
     <button
       onclick="
-    Math.random() * 3;
-    Computerchoice,output;
-   if(number>0 && number<=1){
-       Computerchoice=`bat`;
+    getComputerChoice();
+   if(Computerchoice===`bat`){
        output=`User won`;
        Userscore++;
    }
-   else if(number>1 && number<=2){
-       Computerchoice=`ball`;
+   else if(Computerchoice===`ball`){
        output=`Computer won`;
        ComputerScore++;
    }
    else{
-       Computerchoice=`Stump`;
        output=`Its a tie`;
    }
    alert(`User choose stump. Computer choose ${Computerchoice}. ${output}` )
-   document.querySelector('#result').innerText = `ComputerScore: ${ComputerScore} and UserScore : ${Userscore}`
+   DisplayResult();
    "
     >
       Stump
@@ -89,20 +76,34 @@
     
     <button onclick="ComputerScore=0;
     Userscore=0;
-    document.querySelector('#result').innerText = `ComputerScore: ${ComputerScore} and UserScore : ${Userscore}`
+
+    DisplayResult();
     ">Restart</button>
 
     <h2 id="result"></h2>
 
-
-
   </body>
 
     <script>
+      let Computerchoice, output;
         let ComputerScore = 0;
         let Userscore = 0;
-        document.querySelector('#result').innerText = `ComputerScore: ${ComputerScore} and UserScore : ${Userscore}`
-      let number, Computerchoice, output;
+        function DisplayResult(){
+          document.querySelector('#result').innerText = `ComputerScore: ${ComputerScore} and UserScore : ${Userscore}`
+        }
+        DisplayResult();
+        function getComputerChoice(){
+          let number=Math.random() * 3;
+          if(number>0 && number<=1){
+              Computerchoice=`bat`;
+          }
+          else if(number>1 && number<=2){
+              Computerchoice=`ball`;
+          }
+          else{
+              Computerchoice=`Stump`;
+          }
+              }
     </script>
   </body>
 </html>
