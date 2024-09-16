@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="/Function chapter5/bat,ball,stump game/styles.css" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Bat Ball Stump Game</title>
   </head>
   <body>
@@ -11,99 +11,38 @@
     <button
       onclick="
     getComputerChoice();
-    if(Computerchoice===`bat`){
-        output=`It's a tie`;
-    }
-    else if(Computerchoice===`ball`){
-        output=`User won`;
-        Userscore++;
-    }
-    else{
-        output=`Computer won`;
-        ComputerScore++;
-    }
-    alert(`User choose Bat. Computer choose ${Computerchoice}. ${output}` )
+    getpopup('bat');
     DisplayResult();
-    ">
-      Bat
+    ">Bat
     </button>
 
     <!-- Case2 -->
-    <button
-      onclick="
+    <button onclick="
     getComputerChoice();
-    if(Computerchoice===`bat`){
-        output=`Computer won`;
-        ComputerScore++;
-    }
-    else if(Computerchoice===`ball`){
-        output=`It's a tie`;
-    }
-    else{
-        output=`User won`;
-        Userscore++;
-    }
-    alert(`User choose Ball. Computer choose ${Computerchoice}. ${output}` )
+    getpopup('ball');
     DisplayResult();
-    "
-    >
-      Ball
+    ">Ball
     </button>
 
     <!-- Case3 -->
-    <button
-      onclick="
-    getComputerChoice();
-   if(Computerchoice===`bat`){
-       output=`User won`;
-       Userscore++;
-   }
-   else if(Computerchoice===`ball`){
-       output=`Computer won`;
-       ComputerScore++;
-   }
-   else{
-       output=`Its a tie`;
-   }
-   alert(`User choose stump. Computer choose ${Computerchoice}. ${output}` )
-   DisplayResult();
-   "
-    >
-      Stump
+    <button onclick="
+  getComputerChoice();
+  getpopup('stump');
+  DisplayResult();
+   ">  Stump
     </button>
 
     <br>
     
     <button onclick="ComputerScore=0;
-    Userscore=0;
-
-    DisplayResult();
-    ">Restart</button>
+    Userscore=0;DisplayResult();
+    ">
+    Restart</button>
 
     <h2 id="result"></h2>
 
   </body>
 
-    <script>
-      let Computerchoice, output;
-        let ComputerScore = 0;
-        let Userscore = 0;
-        function DisplayResult(){
-          document.querySelector('#result').innerText = `ComputerScore: ${ComputerScore} and UserScore : ${Userscore}`
-        }
-        DisplayResult();
-        function getComputerChoice(){
-          let number=Math.random() * 3;
-          if(number>0 && number<=1){
-              Computerchoice=`bat`;
-          }
-          else if(number>1 && number<=2){
-              Computerchoice=`ball`;
-          }
-          else{
-              Computerchoice=`Stump`;
-          }
-              }
-    </script>
+    <script src="script.js"> </script>
   </body>
 </html>
