@@ -1,6 +1,14 @@
 let Computerchoice;
-let ComputerScore = 0;
-let Userscore = 0;
+// let ComputerScore = 0;
+// let Userscore = 0;
+
+let score = {
+    ComputerScore: 0,
+    Userscore: 0,
+    DisplayResult : function (){
+        document.querySelector('#result').innerText = `ComputerScore:${score.ComputerScore} and UserScore :${score.Userscore}`
+      },
+}
 
 function getComputerChoice(){
   let number=Math.random() * 3;
@@ -21,34 +29,34 @@ function getwinner(Userchoice,Computerchoice){
             return `It's a tie`;
         }
         else if(Computerchoice===`ball`){
-            Userscore++;
+            score.Userscore++;
             return `User won`;
         }
         else{
-            ComputerScore++;
+            score.ComputerScore++;
             return `Computer won`;
         }
     }
     else if(Userchoice === "ball"){
         if(Computerchoice===`bat`){
-            ComputerScore++;
+            score.ComputerScore++;
             return `Computer won`;
         }
         else if(Computerchoice===`ball`){
             return `It's a tie`;
         }
         else{
-            Userscore++;
+            score.Userscore++;
             return `User won`;
         }
     }
     else{
         if(Computerchoice===`bat`){
-            Userscore++;
+            score.Userscore++;
             return `User won`;
         }
         else if(Computerchoice===`ball`){
-            ComputerScore++;
+            score.ComputerScore++;
             return `Computer won`;
         }
         else{
@@ -61,8 +69,6 @@ function getpopup(choice){
     alert(`User choose Bat. Computer choose ${Computerchoice}. ${getwinner(choice,Computerchoice)}` )
 }
 
-function DisplayResult(){
-  document.querySelector('#result').innerText = `ComputerScore:${ComputerScore} and UserScore :${Userscore}`
-}
-DisplayResult();
+
+score.DisplayResult();
 

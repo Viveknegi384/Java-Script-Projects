@@ -12,7 +12,7 @@
       onclick="
     getComputerChoice();
     getpopup('bat');
-    DisplayResult();
+    score.DisplayResult();
     ">Bat
     </button>
 
@@ -20,7 +20,7 @@
     <button onclick="
     getComputerChoice();
     getpopup('ball');
-    DisplayResult();
+    score.DisplayResult();
     ">Ball
     </button>
 
@@ -28,19 +28,20 @@
     <button onclick="
   getComputerChoice();
   getpopup('stump');
-  DisplayResult();
+  score.DisplayResult();
    ">  Stump
     </button>
 
     <br>
     
-    <button onclick="ComputerScore=0;
-    Userscore=0;DisplayResult();
+    <button onclick="score.ComputerScore=0;
+    score.Userscore=0;score.DisplayResult();
     ">
     Restart</button>
 
     <h2 id="result"></h2>
 
+    
   </body>
 
     <script src="script.js"> </script>
