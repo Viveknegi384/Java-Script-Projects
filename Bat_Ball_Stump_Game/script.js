@@ -1,14 +1,22 @@
 let Computerchoice;
-// let ComputerScore = 0;
-// let Userscore = 0;
+let scorestr = localStorage.getItem("score");
+let score;
 
-let score = {
+// Initialize the score from localStorage or set it to 0 if undefined
+if (scorestr) {
+  score = JSON.parse(scorestr);
+} else {
+  score = {
     ComputerScore: 0,
     Userscore: 0,
-    DisplayResult : function (){
-        document.querySelector('#result').innerText = `ComputerScore:${score.ComputerScore} and UserScore :${score.Userscore}`
-      },
+  };
 }
+
+// Function to display the current score on the webpage
+function DisplayResult() {
+  document.querySelector("#result").innerText = `ComputerScore: ${score.ComputerScore} and UserScore: ${score.Userscore}`;
+}
+
 
 function getComputerChoice(){
   let number=Math.random() * 3;
@@ -66,9 +74,28 @@ function getwinner(Userchoice,Computerchoice){
 }
 
 function getpopup(choice){
-    alert(`User choose Bat. Computer choose ${Computerchoice}. ${getwinner(choice,Computerchoice)}` )
+    alert(`User choose ${choice}. Computer choose ${Computerchoice}. ${getwinner(choice,Computerchoice)}` )
+
+    // Update the score in localStorage
+  localStorage.setItem("score", JSON.stringify(score));
+
+  // Update the score display on the webpage
+  DisplayResult();
 }
 
+function resetscore() {
+    // Reset the score to 0 for both the computer and the user
+    score = {
+      ComputerScore: 0,
+      Userscore: 0,
+    };
+  
+    // Clear the localStorage
+    localStorage.removeItem("score");
+  
+    // Immediately update the score display on the webpage
+    DisplayResult();
+  }
 
-score.DisplayResult();
+DisplayResult();
 
